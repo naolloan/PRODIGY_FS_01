@@ -1,0 +1,13 @@
+body {
+  background-color: #f8f9fa;
+}
+h2 {
+  color: #333;
+}
+.card {
+  background-color: #fff;
+  border-radius: 1rem;
+  border: 1px solid #ddd;
+  max-width: 2000px !important;
+  min-height: 500px !important;
+}

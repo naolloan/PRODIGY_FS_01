@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+  <div class="card shadow-sm p-4">
+    <h2 class="text-center mb-4">Welcome Home!</h2>
+    <div class="text-center">
+      <button class="btn btn-warning me-2" onclick="deleteAccount()">Delete My Account</button>
+      <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('role');
+      window.location.href = 'index.html';
+    }
+
+    function deleteAccount() {
+      if (!confirm('Are you sure you want to delete your account?')) return;
+      const token = localStorage.getItem('token');
+      fetch('http://localhost:5000/users/delete', {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert(data.message);
+        logout();
+      })
+      .catch(() => alert('Failed to delete account'));
+    }
+  </script>
+</body>
+</html>
