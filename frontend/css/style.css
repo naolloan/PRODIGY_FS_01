@@ -1,13 +1,16 @@
 body {
-  background-color: #f8f9fa;
-}
-h2 {
-  color: #333;
+  background: linear-gradient(to right, #f8f9fa, #e0eafc);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .card {
-  background-color: #fff;
-  border-radius: 1rem;
-  border: 1px solid #ddd;
-  max-width: 2000px !important;
-  min-height: 500px !important;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+h2 {
+  font-weight: 600;
 }
